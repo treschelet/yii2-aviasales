@@ -31,7 +31,7 @@ class Aviasales extends Object
     {
         $search = [
             'search[params_attributes][origin_name]' => $params['origin'],
-            'search[params_attributes][destination_name]' => $params['dectination'],
+            'search[params_attributes][destination_name]' => $params['destination'],
             'search[params_attributes][depart_date]' => $params['depart'],
             'search[params_attributes][adults]' => $params['adults'],
             'search[params_attributes][children]' => $params['children'],

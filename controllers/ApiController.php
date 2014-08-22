@@ -39,7 +39,8 @@ class ApiController extends Controller
         switch ($type) {
             case 'tickets':
                 $model = new ASModel();
-                $model->load(Yii::$app->request->post());
+                //$model->load(Yii::$app->request->post());
+                $model->load(Yii::$app->request->queryParams);
                 return $this->AS->getTickets($model);
             default:
                 return [];
