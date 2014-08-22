@@ -24,7 +24,7 @@ class Aviasales extends Model
     public function rules()
     {
         return [
-            [['origin', 'destination', 'depart'], 'require'],
+            [['origin', 'destination', 'depart'], 'required'],
             [['depart', 'return'], 'date'],
             ['adults', 'integer', 'min' => 1, 'max' => 9],
             [['children', 'infants'], 'integer', 'min' => 0, 'max' => 6],
