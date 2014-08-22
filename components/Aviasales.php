@@ -51,6 +51,11 @@ class Aviasales extends Object
         return $this->makeRequest(self::TICKETS_SEARCH_ENGINE, '/searches.json', [], $search);
     }
 
+    public function bookingTickets($search_id, $url_id)
+    {
+        return $this->makeRequest(self::TICKETS_SEARCH_ENGINE, "/searches/$search_id/order_urls/$url_id", [], ['marker' => $this->marker]);
+    }
+
     public function makeRequest($engine, $url, $get = [], $post = [])
     {
         $curlOptions = [

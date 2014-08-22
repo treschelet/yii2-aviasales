@@ -28,6 +28,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
         $app->getUrlManager()->addRules([
             $this->id => $this->id . '/api/index',
             $this->id . '/search/<type:(hotels|tickets)>' => $this->id . '/api/search',
+            $this->id . '/booking/tickets/<sid>/<uid>' => $this->id . '/api/booking',
         ], false);
     }
 

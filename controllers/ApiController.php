@@ -46,4 +46,14 @@ class ApiController extends Controller
                 return [];
         }
     }
+
+    public function actionBooking($type = 'tickets', $sid, $uid)
+    {
+        switch ($type) {
+            case 'tickets':
+                return $this->AS->bookingTickets($sid, $uid);
+            default:
+                return [];
+        }
+    }
 } 
