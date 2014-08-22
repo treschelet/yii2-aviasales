@@ -48,7 +48,29 @@ class Aviasales extends Object
         $search['locale'] = $params['locale'];
         $search['enable_api_auth'] = true;
 
-        return $this->makeRequest(self::TICKETS_SEARCH_ENGINE, '/searches.json', [], $search);
+        $searchResponse = $this->makeRequest(self::TICKETS_SEARCH_ENGINE, '/searches.json', [], $search);
+        $searchResult = [
+            'sid' => $searchResponse['search_id'],
+            'cache_time' => $searchResponse['search_cache_time'],
+            'count' => $searchResponse['metadata']['count'],
+            'currency' => $searchResponse['currency_rates'],
+            'airports' => $searchResponse['airports'],
+            'airlines' => $searchResponse['airlines'],
+        ];
+        $gates = [];
+        foreach($searchResponse['gates_info'] as $gate) {
+            $gates[$gate['id']] = $gate;
+        }
+        $tickets = $searchResponse['tickets'];
+        $cmp = function($a, $b) {
+            if ($a['total'] == $b['total'])
+                return 0;
+            return $a['total'] < $b['total'] ? -1 : 1;
+        };
+        usort($tickets, $cmp);
+        $searchResult['gates'] = $gates;
+        $searchResult['tickets'] = $tickets;
+        return $searchResult;
     }
 
     public function bookingTickets($search_id, $url_id)
