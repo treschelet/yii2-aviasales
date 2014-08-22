@@ -36,7 +36,7 @@ class Aviasales extends Object
             'search[params_attributes][adults]' => $params['adults'],
             'search[params_attributes][children]' => $params['children'],
             'search[params_attributes][infants]' => $params['infants'],
-            'search[params_attributes][trip_class]' => $params['class'],
+            'search[params_attributes][trip_class]' => $params['class'] ? 1 : 0,
         ];
         if (!is_null($params['return']) && !empty($params['return'])) {
             $search['search[params_attributes][return_date]'] = $params['return'];
