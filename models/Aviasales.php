@@ -19,6 +19,7 @@ class Aviasales extends Model
     public $children = 0;
     public $infants = 0;
     public $class = false;
+    public $locale = 'ru';
 
     public function rules()
     {
