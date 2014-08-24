@@ -29,6 +29,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
             $this->id => $this->id . '/api/index',
             $this->id . '/search/<type:(hotels|tickets)>' => $this->id . '/api/search',
             $this->id . '/booking/tickets/<sid>/<uid>' => $this->id . '/api/booking',
+            $this->id . '/places/<term>' => $this->id . '/api/places',
         ], false);
     }
 

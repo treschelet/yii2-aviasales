@@ -78,6 +78,11 @@ class Aviasales extends Object
         return $this->makeRequest(self::TICKETS_SEARCH_ENGINE, "/searches/$search_id/order_urls/$url_id", [], ['marker' => $this->marker]);
     }
 
+    public function getPlaces($term, $locale = 'ru')
+    {
+        return $this->makeRequest(self::CITIES_AUTO_COMPLETE, '/', ['term' => $term, 'locale' => $locale]);
+    }
+
     public function makeRequest($engine, $url, $get = [], $post = [])
     {
         $curlOptions = [

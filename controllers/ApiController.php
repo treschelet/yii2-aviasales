@@ -56,4 +56,11 @@ class ApiController extends Controller
                 return [];
         }
     }
+
+    public function actionPlaces($term = '')
+    {
+        if (empty($term))
+            return [];
+        return $this->AS->getPlaces($term);
+    }
 } 
