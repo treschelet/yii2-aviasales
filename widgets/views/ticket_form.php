@@ -20,9 +20,9 @@ use kartik\widgets\DatePicker;
             ]
         ])?>
         <div class="ages">
-            <?= $form->field($model, 'adults')->dropDownList([1 => 1,2,3,4,5,6,7,8,9], ['class' => 'inout-lg'])?>
-            <?= $form->field($model, 'children')->dropDownList([0,1,2,3,4,5,6], ['class' => 'inout-lg'])?>
-            <?= $form->field($model, 'infants')->dropDownList([0,1,2,3,4,5,6], ['class' => 'inout-lg'])?>
+            <?= $form->field($model, 'adults')->dropDownList([1 => 1,2,3,4,5,6,7,8,9])?>
+            <?= $form->field($model, 'children')->dropDownList([0,1,2,3,4,5,6])?>
+            <?= $form->field($model, 'infants')->dropDownList([0,1,2,3,4,5,6])?>
         </div>
     </div>
     <div class="col-xs-2">
