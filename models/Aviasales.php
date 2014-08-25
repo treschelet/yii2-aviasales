@@ -51,8 +51,8 @@ class Aviasales extends Model
     public function getWays()
     {
         return [
-            'В одну сторону',
-            'Туда и обратно',
+            '<span>В одну сторону</span>',
+            '<span>Туда и обратно</span>',
         ];
     }
 

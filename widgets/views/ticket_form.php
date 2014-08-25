@@ -17,10 +17,11 @@ use kartik\widgets\DatePicker;
         <hr>
     </div>
     <div class="col-xs-5">
-        <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput()?>
+        <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput(['placeholder' => 'Откуда'])?>
         <?= $form->field($model, 'depart', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
+            'placeholder' => 'Дата вылета',
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'dd.mm.yyyy'
@@ -36,10 +37,11 @@ use kartik\widgets\DatePicker;
         <?= Html::button('<i class="fa fa-lg fa-arrows-h"></i>', ['id' => 'swap', 'class' => 'btn btn-primary'])?>
     </div>
     <div class="col-xs-5">
-        <?= $form->field($model, 'destination', ['enableLabel' => false, 'enableError' => false])->textInput()?>
+        <?= $form->field($model, 'destination', ['enableLabel' => false, 'enableError' => false])->textInput(['placeholder' => 'Куда'])?>
         <?= $form->field($model, 'return', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
+            'placeholder' => 'Дата возвращения',
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'dd.mm.yyyy'
