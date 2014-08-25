@@ -28,7 +28,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'twoways', [
             'enableLabel' => false,
             'enableError' => false
-        ])->radioList($model->getWays(), ['encode' => false, 'itemOptions' => ['container' => false]])?>
+        ])->radioList($model->getWays(), ['id' => 'twoways', 'encode' => false, 'itemOptions' => ['container' => false]])?>
         <hr>
     </div>
     <div class="col-xs-5">
@@ -56,7 +56,10 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'return', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
-            'options' => ['placeholder' => 'Дата возвращения'],
+            'options' => [
+                'placeholder' => 'Дата возвращения',
+                'disabled' => $model->twoways ? false : true,
+            ],
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'dd.mm.yyyy'
