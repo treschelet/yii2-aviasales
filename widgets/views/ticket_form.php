@@ -21,7 +21,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'depart', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
-            'placeholder' => 'Дата вылета',
+            'options' => ['placeholder' => 'Дата вылета'],
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'dd.mm.yyyy'
@@ -41,7 +41,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'return', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
-            'placeholder' => 'Дата возвращения',
+            'options' => ['placeholder' => 'Дата возвращения'],
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'dd.mm.yyyy'
