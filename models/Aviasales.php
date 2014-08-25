@@ -20,6 +20,7 @@ class Aviasales extends Model
     public $infants = 0;
     public $class = false;
     public $locale = 'ru';
+    public $twoway = false;
 
     public function rules()
     {
@@ -28,7 +29,7 @@ class Aviasales extends Model
             [['depart', 'return'], 'date'],
             ['adults', 'integer', 'min' => 1, 'max' => 9],
             [['children', 'infants'], 'integer', 'min' => 0, 'max' => 6],
-            ['class', 'boolean']
+            [['class', 'twoway'], 'boolean'],
         ];
     }
 
@@ -46,4 +47,19 @@ class Aviasales extends Model
         ];
     }
 
+    public function getWays()
+    {
+        return [
+            'В одну сторону',
+            'Туда и обратно',
+        ];
+    }
+
+    public function getClass()
+    {
+        return [
+            'Эконом',
+            'Бизнес',
+        ];
+    }
 } 
