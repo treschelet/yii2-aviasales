@@ -5,6 +5,7 @@ var TSParams = TSParams || {};
             url: TSParams.url,
             type: 'POST',
             dataType: 'json',
+            data: $(this).serialize(),
             success: processResponse
         });
         return false;
