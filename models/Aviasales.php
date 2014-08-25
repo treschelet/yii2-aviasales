@@ -69,8 +69,8 @@ class Aviasales extends Model
         return Html::radio($name, $checked, [
             'value' => $value,
             'label' => $label,
+            'container' => false,
             'labelOptions' => [
-                'container' => false,
                 'class' => 'btn btn-primary'.($checked ? ' active' : ''),
             ],
         ]);
