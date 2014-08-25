@@ -11,6 +11,7 @@ use kartik\widgets\DatePicker;
     'options' => ['class' => 'ticket-search-form'],
     'beforeSubmit' => new \yii\web\JsExpression("
         function(form) {
+            $('#ticket-search-result').html('<div class=\"ticket-searching\"><i class=\"fa fa-refresh fa-5x fa-spin\"></i> Идет поиск билетов&hellip;</div>');
             $.ajax({
                 url: TSParams.url,
                 type: 'POST',
