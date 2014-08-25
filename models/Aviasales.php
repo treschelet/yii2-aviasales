@@ -18,9 +18,9 @@ class Aviasales extends Model
     public $adults = 1;
     public $children = 0;
     public $infants = 0;
-    public $class = false;
+    public $class = 0;
     public $locale = 'ru';
-    public $twoways = false;
+    public $twoways = 0;
 
     public function rules()
     {
@@ -29,7 +29,7 @@ class Aviasales extends Model
             [['depart', 'return'], 'date'],
             ['adults', 'integer', 'min' => 1, 'max' => 9],
             [['children', 'infants'], 'integer', 'min' => 0, 'max' => 6],
-            [['class', 'twoway'], 'boolean'],
+            [['class', 'twoway'], 'in', 'range' => [0,1]],
         ];
     }
 

@@ -9,9 +9,9 @@ use kartik\widgets\DatePicker;
 ?>
 <?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search row text-left']]);?>
     <div class="col-xs-12"><?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?><hr></div>
-    <div class="col-xs-5">
-        <?= $form->field($model, 'origin', ['enableError' => false])->textInput()?>
-        <?= $form->field($model, 'depart', ['enableError' => false])->widget(DatePicker::className(), [
+    <div class="col-xs-5 text-center">
+        <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput()?>
+        <?= $form->field($model, 'depart', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
             'pluginOptions' => [
@@ -29,8 +29,8 @@ use kartik\widgets\DatePicker;
         <?= Html::button('<i class="fa fa-lg fa-arrows-h"></i>', ['id' => 'swap', 'class' => 'btn btn-primary'])?>
     </div>
     <div class="col-xs-5">
-        <?= $form->field($model, 'destination', ['enableError' => false])->textInput()?>
-        <?= $form->field($model, 'return', ['enableError' => false])->widget(DatePicker::className(), [
+        <?= $form->field($model, 'destination', ['enableLabel' => false, 'enableError' => false])->textInput()?>
+        <?= $form->field($model, 'return', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
             'language' => Yii::$app->language,
             'type' => DatePicker::TYPE_COMPONENT_APPEND,
             'pluginOptions' => [
@@ -40,7 +40,7 @@ use kartik\widgets\DatePicker;
         ])?>
         <?= $form->field($model, 'class')->radioList($model->getClass())?>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 text-center">
         <?= Html::submitButton('<i class="fa fa-search"></i> НАЙТИ БИЛЕТЫ', ['class' => 'btn btn-lg btn-warning'])?>
     </div>
 <?php ActiveForm::end()?>
