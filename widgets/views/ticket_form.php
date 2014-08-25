@@ -13,7 +13,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'twoways', [
             'enableLabel' => false,
             'enableError' => false
-        ])->radioList($model->getWays(), ['itemOptions' => ['container' => false]])?>
+        ])->radioList($model->getWays(), ['encode' => false, 'itemOptions' => ['container' => false]])?>
         <hr>
     </div>
     <div class="col-xs-5">
