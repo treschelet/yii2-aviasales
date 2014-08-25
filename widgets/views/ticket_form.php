@@ -9,7 +9,13 @@ use kartik\widgets\DatePicker;
 ?>
 <?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search-form']]);?>
 <div class="clearfix text-left">
-    <div class="col-xs-12 ways"><?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?><hr></div>
+    <div class="col-xs-12 ways">
+        <?= $form->field($model, 'twoways', [
+            'enableLabel' => false,
+            'enableError' => false
+        ])->radioList($model->getWays(), ['itemOptions' => ['container' => false]])?>
+        <hr>
+    </div>
     <div class="col-xs-5">
         <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput()?>
         <?= $form->field($model, 'depart', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
