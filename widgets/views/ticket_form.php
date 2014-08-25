@@ -11,6 +11,11 @@ $this->registerJs("
     $('#aviasales-twoways input[type=radio]').on('change', function() {
         $('#aviasales-return').prop('disabled', $(this).val() == 1 ? false : 'disabled');
     });
+    $('#swap').on('click', function() {
+        var o = $('#aviasales-origin').val(), d = $('#aviasales-destination').val();
+        $('#aviasales-origin').val(d);
+        $('#aviasales-destination').val(o);
+    });
 ");
 ?>
 <?php $form = ActiveForm::begin([
