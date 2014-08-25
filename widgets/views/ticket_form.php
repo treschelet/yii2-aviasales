@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 use kartik\widgets\DatePicker;
 ?>
 <?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search']]);?>
-<div class="row text-left">
+<div class="clearfix text-left">
     <div class="col-xs-12"><?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?><hr></div>
     <div class="col-xs-5">
         <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput()?>
