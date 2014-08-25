@@ -6,6 +6,12 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use kartik\widgets\DatePicker;
+
+$this->registerJs("
+    $('#aviasales-twoways input[type=radio]').on('change', function() {
+        $('#aviasales-return').prop('disabled', $(this).val() ? false : true);
+    });
+");
 ?>
 <?php $form = ActiveForm::begin([
     'options' => ['class' => 'ticket-search-form'],
@@ -28,7 +34,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'twoways', [
             'enableLabel' => false,
             'enableError' => false
-        ])->radioList($model->getWays(), ['id' => 'twoways', 'encode' => false, 'itemOptions' => ['container' => false]])?>
+        ])->radioList($model->getWays(), ['encode' => false, 'itemOptions' => ['container' => false]])?>
         <hr>
     </div>
     <div class="col-xs-5">
