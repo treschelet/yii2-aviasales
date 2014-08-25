@@ -12,7 +12,7 @@ class TicketSearchAsset extends AssetBundle
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/../assets');
-        $this->setupAssets('js', ['css/ticketsearch']);
+        $this->setupAssets('js', ['js/ticketsearch']);
         parent::init();
     }
 } 
