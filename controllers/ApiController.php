@@ -41,6 +41,8 @@ class ApiController extends Controller
                 $model = new ASModel();
                 //$model->load(Yii::$app->request->post());
                 $model->load(Yii::$app->request->queryParams);
+                if (!$model->twoways)
+                    $model->return = '';
                 return $this->AS->getTickets($model);
             default:
                 return [];

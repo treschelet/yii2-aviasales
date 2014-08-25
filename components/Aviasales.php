@@ -30,7 +30,7 @@ class Aviasales extends Object
     public function getTickets($params)
     {
         $search = [
-            'search[params_attributes][origin_name]' => $params['origin'],
+            'search[params_attributes][origin_name]' => date('Y-m-d', strtotime($params['origin'])),
             'search[params_attributes][destination_name]' => $params['destination'],
             'search[params_attributes][depart_date]' => $params['depart'],
             'search[params_attributes][adults]' => $params['adults'],
@@ -39,7 +39,7 @@ class Aviasales extends Object
             'search[params_attributes][trip_class]' => $params['class'] ? 1 : 0,
         ];
         if (!is_null($params['return']) && !empty($params['return'])) {
-            $search['search[params_attributes][return_date]'] = $params['return'];
+            $search['search[params_attributes][return_date]'] = date('Y-m-d', strtotime($params['return']));
         }
         ksort($search);
         $signature = md5($this->token.':'.$this->marker.':'.implode(':', array_values($search)));
