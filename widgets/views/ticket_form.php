@@ -9,7 +9,7 @@ use kartik\widgets\DatePicker;
 
 $this->registerJs("
     $('#aviasales-twoways input[type=radio]').on('change', function() {
-        $('#aviasales-return').prop('disabled', $(this).val() ? false : 'disabled');
+        $('#aviasales-return').prop('disabled', $(this).val() == 1 ? false : 'disabled');
     });
 ");
 ?>
