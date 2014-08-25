@@ -1,11 +1,12 @@
 var TSParams = TSParams || {};
 !function($) {
     $('.ticket-search-form').on('submit', function() {
+        alert($(this).serialize());
         $.ajax({
             url: TSParams.url,
             type: 'POST',
             dataType: 'json',
-            data: $(this).serialize(),
+            data: $('.ticket-search-form').serialize(),
             success: processResponse
         });
         return false;
