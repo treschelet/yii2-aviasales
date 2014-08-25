@@ -6,7 +6,7 @@ var TSParams = TSParams || {};
             url: TSParams.url,
             type: 'POST',
             dataType: 'json',
-            data: $('.ticket-search-form').serialize(),
+            data: $(this).serialize(),
             success: processResponse
         });
         return false;
