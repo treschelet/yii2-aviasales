@@ -15,7 +15,7 @@ use kartik\widgets\DatePicker;
                 url: TSParams.url,
                 type: 'POST',
                 dataType: 'json',
-                data: $(this).serialize(),
+                data: form.serialize(),
                 success: processResponse
             });
             return false;

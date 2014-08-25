@@ -30,9 +30,9 @@ class Aviasales extends Object
     public function getTickets($params)
     {
         $search = [
-            'search[params_attributes][origin_name]' => date('Y-m-d', strtotime($params['origin'])),
+            'search[params_attributes][origin_name]' => $params['origin'],
             'search[params_attributes][destination_name]' => $params['destination'],
-            'search[params_attributes][depart_date]' => $params['depart'],
+            'search[params_attributes][depart_date]' => date('Y-m-d', strtotime($params['depart'])),
             'search[params_attributes][adults]' => $params['adults'],
             'search[params_attributes][children]' => $params['children'],
             'search[params_attributes][infants]' => $params['infants'],
