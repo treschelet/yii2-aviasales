@@ -7,7 +7,21 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use kartik\widgets\DatePicker;
 ?>
-<?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search-form']]);?>
+<?php $form = ActiveForm::begin([
+    'options' => ['class' => 'ticket-search-form'],
+    'beforeSubmit' => new \yii\web\JsExpression("
+        function(form) {
+            $.ajax({
+                url: TSParams.url,
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: processResponse
+            });
+            return false;
+        }
+    "),
+]);?>
 <div class="clearfix text-left">
     <div class="col-xs-12 ways">
         <?= $form->field($model, 'twoways', [

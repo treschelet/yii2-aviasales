@@ -1,17 +1,5 @@
 var TSParams = TSParams || {};
-!function($) {
-    $('.ticket-search-form').on('submit', function() {
-        $.ajax({
-            url: TSParams.url,
-            type: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: processResponse
-        });
-        return false;
-    });
-    var processResponse = function(response) {
-        for(var i in response)
-            alert(response[i]);
-    }
-}(window.jQuery);
+var processResponse = function(response) {
+    for(var i in response)
+        alert(response[i]);
+};
