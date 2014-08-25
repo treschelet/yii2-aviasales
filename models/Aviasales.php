@@ -8,6 +8,7 @@ namespace treschelet\aviasales\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 
 class Aviasales extends Model
 {
@@ -61,5 +62,17 @@ class Aviasales extends Model
             'Эконом',
             'Бизнес',
         ];
+    }
+
+    public static function classSwitch($index, $label, $name, $checked, $value)
+    {
+        return Html::radio($name, $checked, [
+            'value' => $value,
+            'label' => $label,
+            'labelOptions' => [
+                'container' => false,
+                'class' => 'btn btn-primary'.($checked ? ' active' : ''),
+            ],
+        ]);
     }
 } 

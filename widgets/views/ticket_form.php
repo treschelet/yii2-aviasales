@@ -42,10 +42,11 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'class')->radioList($model->getClass(), [
             'class' => 'btn-group',
             'data-toggle' => 'buttons',
-            'itemOptions' => [
-                'container' => false,
-                'labelOptions' => ['class' => 'btn btn-primary'],
-             ]
+            'item' => ['treschelet\aviasales\models\Aviasales', 'classSwitch'],
+            //'itemOptions' => [
+            //    'container' => false,
+            //    'labelOptions' => ['class' => 'btn btn-primary'],
+            //]
         ])?>
     </div>
     <div class="col-xs-12 text-center">
