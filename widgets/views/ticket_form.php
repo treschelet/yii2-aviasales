@@ -6,7 +6,7 @@
 use yii\bootstrap\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin();?>
-    <?= $form->field($model, 'twoways')->radioList($model->getWays())?>
+    <?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?>
     <?= $form->field($model, 'origin')->textInput()?>
     <?= $form->field($model, 'destination')->textInput()?>
     <?= $form->field($model, 'depart')->textInput()?>
