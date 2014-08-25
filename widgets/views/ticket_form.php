@@ -7,9 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use kartik\widgets\DatePicker;
 ?>
-<?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search']]);?>
+<?php $form = ActiveForm::begin(['options' => ['class' => 'ticket-search-form']]);?>
 <div class="clearfix text-left">
-    <div class="col-xs-12"><?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?><hr></div>
+    <div class="col-xs-12 ways"><?= $form->field($model, 'twoways', ['enableLabel' => false])->radioList($model->getWays())?><hr></div>
     <div class="col-xs-5">
         <?= $form->field($model, 'origin', ['enableLabel' => false, 'enableError' => false])->textInput()?>
         <?= $form->field($model, 'depart', ['enableLabel' => false, 'enableError' => false])->widget(DatePicker::className(), [
@@ -39,7 +39,11 @@ use kartik\widgets\DatePicker;
                 'format' => 'dd.mm.yyyy'
             ]
         ])?>
-        <?= $form->field($model, 'class')->radioList($model->getClass())?>
+        <?= $form->field($model, 'class')->radioList($model->getClass(), [
+            'class' => 'btn-group',
+            'data-toggle' => 'buttons',
+            'labelOptions' => ['class' => 'btn btn-primary']
+        ])?>
     </div>
     <div class="col-xs-12 text-center">
         <?= Html::submitButton('<i class="fa fa-search"></i> НАЙТИ БИЛЕТЫ', ['class' => 'btn btn-lg btn-warning'])?>
